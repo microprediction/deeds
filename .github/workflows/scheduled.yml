@@ -18,9 +18,9 @@ jobs:
 
       - name: Run a one-line script
         run: echo I am running now
-      - name: Create more data
         with:
           python-version: 3.8
+      - name: Create more data
         run: |
           python do.py
 
