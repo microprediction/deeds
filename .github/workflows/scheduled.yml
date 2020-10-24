@@ -1,6 +1,6 @@
 # Example of a scheduled job that commits new data file
 
-name: CI
+name: append every three mins
 
 # Schedule a job
 on:
