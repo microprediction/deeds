@@ -1,10 +1,11 @@
-import time
+import datetime
+
 
 def write_something():
-    stamp = time.time.now()
+    stamp = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     print('writing '+stamp)
-    with open("my.csv","at") as f:
-        f.write("\n5.3,5.1,"+str(stamp))
+    with open("timestamp.py","at") as f:
+        f.write("\n"+stamp)
 
 
 if __name__=='__main__':
