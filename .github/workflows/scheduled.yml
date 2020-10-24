@@ -1,0 +1,32 @@
+# Example of a scheduled job that commits new data file
+
+name: CI
+
+# Schedule a job
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo I am running now
+
+      - name: Commit data files  
+        run: |
+          git config --local user.name  ${{ github.actor }}
+          git add my.csv
+          git commit -m "new data from scheduled job"
+      - name: Push changes  # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
