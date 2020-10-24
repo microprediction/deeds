@@ -19,6 +19,10 @@ jobs:
       - name: Run a one-line script
         run: echo I am running now
 
+      - name: Create more data
+        run: |
+          python do.py
+
       - name: Commit data files  
         run: |
           git config --local user.name  ${{ github.actor }}
