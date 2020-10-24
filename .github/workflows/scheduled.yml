@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+
+      - name: Create data and append
         run: |
           python do.py
 
