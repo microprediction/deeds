@@ -23,6 +23,7 @@ jobs:
         run: echo I am running now
 
       - name: setup python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
         run: |
