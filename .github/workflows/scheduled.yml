@@ -19,6 +19,8 @@ jobs:
       - name: Run a one-line script
         run: echo I am running now
       - name: Create more data
+        with:
+          python-version: 3.8
         run: |
           python do.py
 
@@ -27,7 +29,7 @@ jobs:
           git config --local user.name  ${{ github.actor }}
           git add my.csv
           git commit -m "new data from scheduled job"
-      - name: Push changes  # push the output folder to your repo
+      - name: Push changes  #
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
