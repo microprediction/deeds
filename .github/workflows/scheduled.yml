@@ -20,9 +20,10 @@ jobs:
 
       - name: Run a one-line script
         run: echo I am running now
-      - name: run python
+      - name: setup python
         with:
           python-version: 3.8
+      - name: create data
         run: |
           python do.py
 
