@@ -34,7 +34,7 @@ jobs:
       - name: Commit data files  
         run: |
           git config --local user.name  ${{ github.actor }}
-          git add my.csv
+          git add timestamp.py
           git commit -m "new data from scheduled job"
 
       - name: Push changes  #
