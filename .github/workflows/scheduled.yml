@@ -16,14 +16,15 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
       - name: Run a one-line script
         run: echo I am running now
+
       - name: setup python
         with:
           python-version: 3.8
-      - name: create data
         run: |
           python do.py
 
@@ -32,6 +33,7 @@ jobs:
           git config --local user.name  ${{ github.actor }}
           git add my.csv
           git commit -m "new data from scheduled job"
+
       - name: Push changes  #
         uses: ad-m/github-push-action@master
         with:
