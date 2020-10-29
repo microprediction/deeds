@@ -34,6 +34,7 @@ jobs:
       - name: Commit data files  
         run: |
           git config --local user.name  ${{ github.actor }}
+          git config --local user.email "$(git log --format='%ae' HEAD^!)"
           git add timestamp.py
           git commit -m "new data from scheduled job"
 
