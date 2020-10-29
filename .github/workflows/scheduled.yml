@@ -30,19 +30,16 @@ jobs:
       - name: Create data and append
         run: |
           python do.py
+          cat timestamp.py
 
       - name: Commit data files  
         run: |
-          cat timestamp.py
-          git status
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "info@microprediction.com"
-          git add ./timestamp.py
+          git add -A 
           git commit -a -m "new data from scheduled job"
           git status
           
-          
-
       - name: Push changes  #
         uses: ad-m/github-push-action@master
         with:
