@@ -34,10 +34,12 @@ jobs:
       - name: Commit data files  
         run: |
           cat timestamp.py
+          git status
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "info@microprediction.com"
           git add .
           git commit -a -m "new data from scheduled job"
+          git status
           
           
 
