@@ -41,9 +41,13 @@ jobs:
           git commit -a -m "new data from scheduled job"
           git status
           
+      - name: Push changes manually
+          git push github HEAD:$${{ github.ref }}
+          
       - name: Push changes  #
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
           force: true
 
