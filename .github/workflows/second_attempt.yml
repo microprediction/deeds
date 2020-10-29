@@ -37,10 +37,15 @@ jobs:
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "info@microprediction.com"
           git log --name-only
-          git add -A 
+          echo "------ status before -----"
+          git status 
+          git add timestamp2 
           git commit -a -m "new data from scheduled job"
           git log --name-only
+          echo "------- status after commit ----- "
           git status
+          echo "----- files set to commit ---- " 
+          git diff --stat --cached origin/master
           
       - name: Push changes
         uses: ad-m/github-push-action@master
