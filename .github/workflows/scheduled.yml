@@ -30,6 +30,7 @@ jobs:
       - name: Create data and append
         run: |
           python do.py
+          pwd
           cat timestamp.py
 
       - name: Commit data files  
