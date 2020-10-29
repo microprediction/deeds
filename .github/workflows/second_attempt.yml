@@ -39,7 +39,9 @@ jobs:
           git log --name-only
           echo "------ status before -----"
           git status 
-          git add timestamp2 
+          git add --all 
+          echo "------ status after add -----"
+          git status 
           git commit -a -m "new data from scheduled job"
           git log --name-only
           echo "------- status after commit ----- "
