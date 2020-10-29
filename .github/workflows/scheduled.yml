@@ -37,7 +37,7 @@ jobs:
           git status
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "info@microprediction.com"
-          git add .
+          git add ./timestamp.py
           git commit -a -m "new data from scheduled job"
           git status
           
