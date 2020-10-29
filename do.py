@@ -4,7 +4,7 @@ import datetime
 def write_something():
     stamp = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     print('writing '+stamp)
-    with open("timestamp.py","at") as f:
+    with open("timestamp2.py","at") as f:
         f.write("\n"+stamp)
 
 
