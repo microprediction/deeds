@@ -31,22 +31,27 @@ jobs:
         run: |
           python do.py
           pwd
-          cat timestamp.py
-      - name: Commit data files  
+          cat timestamp2.py
+      - name: Show git status
+        run: | 
+          git status
+      - name: Add data files  
         run: |
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "info@microprediction.com"
-          git log --name-only
-          echo "------ status before -----"
-          git status 
-          git add --all 
-          echo "------ status after add -----"
-          git status 
-          git commit -a -m "new data from scheduled job"
-          git log --name-only
-          echo "------- status after commit ----- "
+          git add --all           
+      - name: Show git status
+        run: | 
           git status
-          echo "----- files set to commit ---- " 
+      
+      - name: Commit
+        run: |  
+          git commit -a -m "new data from scheduled job"
+          
+      - name: Show git status
+          git status
+          
+      - name: Show files that will be pushed
           git diff --stat --cached origin/master
           
       - name: Push changes
@@ -54,4 +59,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-
+    
+      - name: Cat data file 
+        run: | 
+           cat timestamp2.py 
