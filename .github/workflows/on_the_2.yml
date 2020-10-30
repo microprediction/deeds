@@ -1,6 +1,6 @@
 # Example of a scheduled job that commits new data file
 
-name: Every Five Alive
+name: Every Five Alive 2
 
 # Schedule a job
 on:
