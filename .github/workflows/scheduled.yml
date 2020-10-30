@@ -1,0 +1,58 @@
+# Example of a scheduled job that commits new data file
+
+name: Every Five Alive
+
+# Schedule a job
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Create data in timestamp2
+        run: |
+          python do.py
+          pwd
+          cat timestamp2.py
+      - name: Show git status
+        run: | 
+          git status
+      - name: Add data files  
+        run: |
+          git config --local user.name  ${{ github.actor }}
+          git config --local user.email "info@microprediction.com"
+          git add --all           
+      - name: Show git status
+        run: | 
+          git status
+      
+      - name: Commit
+        run: |  
+          git commit -a -m "new data from scheduled job"
+          
+      - name: Show git status
+        run: | 
+          git status
+                    
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+    
+      - name: Cat data file 
+        run: | 
+           cat timestamp2.py
