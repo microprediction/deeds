@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Create data and append
+      - name: Create data in timestamp2
         run: |
           python do.py
           pwd
