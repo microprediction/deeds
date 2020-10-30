@@ -4,7 +4,7 @@ name: append every three mins
 
 # Schedule a job
 on:
-  schedule:
+  schedules:
     # * is a special character in YAML so you have to quote this string
     - cron:  '*/5 * * * *'
   push:
