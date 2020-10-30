@@ -48,11 +48,7 @@ jobs:
       - name: Show git status
         run: | 
           git status
-          
-      - name: Show files that will be pushed
-        run: | 
-          git diff --stat --cached origin/master
-          
+                    
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
