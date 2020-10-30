@@ -19,9 +19,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: This is the second attempt
-
       - name: setup python
         uses: actions/setup-python@v2
         with:
@@ -49,9 +46,11 @@ jobs:
           git commit -a -m "new data from scheduled job"
           
       - name: Show git status
+        run: | 
           git status
           
       - name: Show files that will be pushed
+        run: | 
           git diff --stat --cached origin/master
           
       - name: Push changes
