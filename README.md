@@ -1,2 +1,3 @@
 # deeds
-Using github actions
+
+Minimalist example of GitHub actions
