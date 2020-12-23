@@ -1,12 +1,12 @@
 # Example of a scheduled job that commits new data file
 
-name: Every 15 
+name: Every 20 
 
 # Schedule a job
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/15 * * * *'
+    - cron:  '*/20 * * * *'
 
 jobs:
   build:
